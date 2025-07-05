@@ -266,3 +266,31 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll(".project").forEach((el) => {
   observer.observe(el);
 });
+
+// Handle Gllery
+const images = [
+  "1729503758180.jpg",
+  "1751700809102.jpg",
+  "1751701018717.jpg",
+  "1751701018703.jpg",
+  "1751701018747.jpg",
+  "1751701018733.jpg",
+  "1751700809115.jpg",
+  "1751700760298.jpg",
+];
+const gallery = document.querySelector("#gallery");
+const galleryContent = images.map(
+  (img) => `<article class="gallery-item">
+            <img
+              class="gallery-image"
+              src="./assets/images/${img}"
+            />
+          </article>`
+);
+
+gallery.innerHTML = galleryContent.join("");
+
+// // Gallery scroll
+// setInterval(() => {
+// gallery.scrollLeft += 50
+// }, 500)

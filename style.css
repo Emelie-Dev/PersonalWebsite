@@ -268,9 +268,7 @@ body {
   width: 100%;
   font-family: appFont;
   padding: 3rem;
-  /* background-image: url(./assets/images/istockphoto-2155672333-612x612.webp);
-  background-size: cover;
-  background-repeat: no-repeat; */
+  margin: 8rem 0;
 }
 
 #project-head {
@@ -304,8 +302,8 @@ body {
   padding-bottom: 0.5rem;
   cursor: pointer;
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(35px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .visible {
@@ -428,7 +426,7 @@ body {
   display: none;
   flex-direction: column;
   color: white;
-  text-shadow: 1px 1px 1px black;
+  /* text-shadow: 1px 1px 1px black; */
   animation: slideDown 0.25s ease-in-out 0s 1 normal both;
   background: peru;
 }
@@ -464,6 +462,106 @@ body {
   text-decoration: none;
 }
 
+#gallery-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: appFont;
+  margin-bottom: 5rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#gallery {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  scroll-behavior: smooth;
+  /* animation: galleryAnimation 30s linear 0s infinite normal both; */
+  padding: 0 1rem;
+}
+
+#gallery::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+#gallery-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.8rem;
+  font-size: 2rem;
+  color: darkblue;
+  margin-bottom: 4rem;
+}
+
+.gallery-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px -3px black;
+}
+
+.gallery-image {
+  width: 20rem;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+}
+
+#gallery-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: white;
+  fill: darkblue;
+}
+
+#contact {
+  background: darkblue;
+  padding: 60px 20px 0;
+  text-align: center;
+  font-family: appFont;
+  color: white;
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#contact-info {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+#contact-info li {
+  margin: 0 0.5rem;
+}
+
+.contact-icon {
+  width: 2rem;
+  height: 2rem;
+  fill: white;
+}
+
+#hr {
+  width: 100%;
+}
+
+#footer {
+  border-top: 1px solid white;
+  background: darkblue;
+  text-align: center;
+  color: white;
+  font-family: appFontSemi;
+  padding: 1rem 2rem 1.5rem;
+}
+
 @keyframes slideSide {
   from {
     opacity: 0;
@@ -483,5 +581,14 @@ body {
   to {
     opacity: 1;
     height: 100%;
+  }
+}
+
+@keyframes galleryAnimation {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
