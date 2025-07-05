@@ -131,6 +131,60 @@
         <div id="gallery"></div>
       </section>
 
+      <section id="lightbox">
+        <span id="close-icon-box" onclick="hideLightBox()">
+          <svg
+            id="close-icon"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
+        </span>
+
+        <div id="lightbox-container">
+          <figure id="figure">
+            <img id="img" src="" />
+
+            <figcaption>
+              <span id="prev-arrow-box" onclick="changeCurrentImage('prev')" >
+                <svg id="prev-arrow">
+                  <path
+                    id="prev-arrow-path"
+                    d="M11 1 3 9l8 8"
+                    stroke="#1D2026"
+                    strokeWidth="3"
+                    fill="none"
+                    fillRule="evenodd"
+                  />
+                </svg>
+              </span>
+
+              <span id="next-arrow-box" onclick="changeCurrentImage('next')">
+                <svg id="next-arrow">
+                  <path
+                    id="next-arrow-path"
+                    d="m2 1 8 8-8 8"
+                    stroke="#1D2026"
+                    strokeWidth="3"
+                    fill="none"
+                    fillRule="evenodd"
+                  />
+                </svg>
+              </span>
+            </figcaption>
+          </figure>
+
+          <div id="thumbnail-div"></div>
+        </div>
+      </section>
+
       <section id="contact">
         <h2 id="contact-head">Contact Me</h2>
         <p id="contact-text">

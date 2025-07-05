@@ -19,6 +19,9 @@
 
 body {
   margin: 0;
+  height: 100%;
+  overflow: auto;
+  scroll-behavior: smooth;
 }
 
 .header {
@@ -560,6 +563,150 @@ body {
   color: white;
   font-family: appFontSemi;
   padding: 1rem 2rem 1.5rem;
+}
+
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem 1rem 2rem;
+  overflow: auto;
+  user-select: none;
+}
+
+#lightbox-container {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#close-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 0.3rem;
+  transition: all 0.25s;
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+#close-icon {
+  color: white;
+  width: 1.7rem;
+  height: 1.7rem;
+  cursor: pointer;
+}
+
+#close-icon-box:hover {
+  background: darkblue;
+}
+
+#figure {
+  position: relative;
+}
+
+#img {
+  width: 100%;
+  height: 25rem;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+#prev-arrow-box,
+#next-arrow-box {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 44%;
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#prev-arrow-box {
+  left: -20%;
+}
+
+#next-arrow-box {
+  right: -20%;
+}
+
+#prev-arrow,
+#next-arrow {
+  width: 0.75rem;
+  height: 1.125rem;
+  transform: scale(1);
+  stroke-width: 3px;
+}
+
+#prev-arrow-path,
+#next-arrow-path {
+  stroke: darkblue;
+}
+
+#prev-arrow-box:hover,
+#next-arrow-box:hover {
+  background: darkblue;
+}
+
+#prev-arrow-box:hover #prev-arrow-path,
+#next-arrow-box:hover #next-arrow-path {
+  stroke: white;
+}
+
+#thumbnail-div {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  width: 100%;
+  overflow: auto;
+}
+
+.thumbnail-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.thumbnail-img {
+  width: 10rem;
+  height: 6rem;
+  object-fit: cover;
+}
+
+.thumbnail-box:hover {
+  opacity: 0.8;
+}
+
+.active-thumbnail {
+  border: 3px solid peru;
+}
+
+.show {
+  display: flex !important;
+  animation: fadeAnimation 0.3s ease-in-out;
+}
+
+@keyframes fadeAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideSide {

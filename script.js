@@ -1,5 +1,7 @@
 "use strict";
 
+let slideShow = { index: 0 };
+
 // Text Anmation
 const textArray = [
   "Hi, I’m Vincent — thanks for stopping by.",
@@ -280,7 +282,10 @@ const images = [
 ];
 const gallery = document.querySelector("#gallery");
 const galleryContent = images.map(
-  (img) => `<article class="gallery-item">
+  (
+    img,
+    index
+  ) => `<article class="gallery-item" onclick="showLightBox(${index})">
             <img
               class="gallery-image"
               src="./assets/images/${img}"
@@ -290,7 +295,75 @@ const galleryContent = images.map(
 
 gallery.innerHTML = galleryContent.join("");
 
-// // Gallery scroll
-// setInterval(() => {
-// gallery.scrollLeft += 50
-// }, 500)
+// Handle lightbox
+
+const lightbox = document.querySelector("#lightbox");
+const figureImg = document.querySelector("#img");
+const thumbnailElement = document.querySelector("#thumbnail-div");
+
+lightbox.addEventListener("click", (e) => {
+  if (e.target == e.currentTarget) hideLightBox();
+});
+
+const showLightBox = (index) => {
+  slideShow.index = index;
+
+  const thumbnailContent = images.map(
+    (img, index) => ` <span class="thumbnail-box"
+              onclick="changeCurrentImage(${index})"><img
+                class="thumbnail-img ${
+                  index === slideShow.index ? "active-thumbnail" : ""
+                }"
+                src="./assets/images/${img}"
+            /></span>`
+  );
+  thumbnailElement.innerHTML = thumbnailContent.join("");
+
+  figureImg.src = `./assets/images/${images[index]}`;
+  lightbox.classList.add("show");
+};
+
+const hideLightBox = () => {
+  lightbox.classList.remove("show");
+};
+
+const changeCurrentImage = (index) => {
+  let id = index;
+
+  if (index === "prev") {
+    id = slideShow.index - 1;
+  } else if (index === "next") {
+    id = slideShow.index + 1;
+  }
+
+  if (id === images.length) id = 0;
+  if (id === -1) id = 7;
+
+  slideShow.index = id;
+  figureImg.src = `./assets/images/${images[id]}`;
+
+  const thumbnailContent = images.map(
+    (img, index) => ` <span class="thumbnail-box  ${
+      index === slideShow.index ? "active-thumbnail" : ""
+    }"
+              onclick="changeCurrentImage(${index})"><img
+                class="thumbnail-img"
+                src="./assets/images/${img}"
+            /></span>`
+  );
+  thumbnailElement.innerHTML = thumbnailContent.join("");
+
+  document.querySelector("#img").animate(
+    {
+      opacity: [0, 1],
+    },
+    {
+      fill: "both",
+      duration: 250,
+    }
+  );
+
+  document
+    .querySelectorAll(".thumbnail-box")
+    [id].scrollIntoView({ behavior: "smooth" });
+};
