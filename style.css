@@ -459,6 +459,11 @@ body {
   display: flex;
 }
 
+#download-link {
+  color: white;
+  text-decoration: none;
+}
+
 @keyframes slideSide {
   from {
     opacity: 0;
