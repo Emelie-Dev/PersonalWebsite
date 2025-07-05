@@ -318,9 +318,14 @@ const showLightBox = (index) => {
             /></span>`
   );
   thumbnailElement.innerHTML = thumbnailContent.join("");
+  document.querySelector("#slide-index").innerHTML = index + 1;
 
   figureImg.src = `./assets/images/${images[index]}`;
   lightbox.classList.add("show");
+
+  document
+    .querySelectorAll(".thumbnail-box")
+    [index].scrollIntoView({ behavior: "smooth" });
 };
 
 const hideLightBox = () => {
@@ -362,7 +367,7 @@ const changeCurrentImage = (index) => {
       duration: 250,
     }
   );
-
+  document.querySelector("#slide-index").innerHTML = id + 1;
   document
     .querySelectorAll(".thumbnail-box")
     [id].scrollIntoView({ behavior: "smooth" });
