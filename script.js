@@ -293,7 +293,7 @@ const galleryContent = images.map(
           </article>`
 );
 
-gallery.innerHTML = galleryContent.join("");
+if (gallery) gallery.innerHTML = galleryContent.join("");
 
 // Handle lightbox
 
