@@ -271,7 +271,7 @@ body {
   width: 100%;
   font-family: appFont;
   padding: 3rem;
-  margin: 8rem 0;
+  margin: 8rem 0 0;
 }
 
 #project-head {
@@ -466,7 +466,7 @@ body {
 }
 
 #gallery-section {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   font-family: appFont;
@@ -535,7 +535,7 @@ body {
   text-align: center;
   font-family: appFont;
   color: white;
-  margin-top: 10rem;
+  /* margin-top: 10rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
